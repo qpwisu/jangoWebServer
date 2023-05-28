@@ -19,6 +19,7 @@ def comment_create_answer(request, answer_id):
             comment = form.save(commit=False)
             comment.author = request.user
             comment.create_date = timezone.now()
+            comment.question = answer.question
             comment.answer = answer
             comment.save()
             # return redirect('pybo:detail', question_id=comment.answer.question.id)

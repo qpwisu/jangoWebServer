@@ -54,7 +54,7 @@
                     {% if question.comment_set.count > 0 %}
 {#                        정렬#}
                         <div class="col-2">
-                            <select class="form-control so" style="padding: 0.375rem 0.75rem;">
+                            <select class="form-control so" style="padding: 0.375rem 0.75rem;     margin-top: 15px;">
                                 <option value="recent" {% if so == 'recent' %}selected{% endif %}>
                                     최신순
                                 </option>
@@ -72,13 +72,13 @@
                             <div style="border-top: 0.5px solid #444444;"></div>
                             <a name="comment_{{ comment.id }}"></a>
                                 <div class="comment py-2 text-muted">
-                                    <span style="    color: blue; margin-right: 10px; border: 1px  #444444 solid;padding: 8px;">
+                                    <span style="    color:black ;font-size: 15px; margin-right: 5px;  padding: 5px">
                                         {{ comment_list.paginator.count|sub:comment_list.start_index|sub:forloop.counter0|add:1 }}
                                     </span>
                                     <span style="border: 1px solid; padding :8px; background-color: #f8f9fa;margin-right: 7px;"> {{ comment.voter.count }}</span>
                                     <a style="    padding: 5px;" href="#" data-uri="{% url 'pybo:vote_comment' comment.id %}" class="recommend btn btn-secondary my-1">추천</a>
-                                    <span style="white-space: pre-line;">{{ comment.content }}</span>
-                                    <span style="font-size: 12px;" >
+                                    <span style="font-size:13px; color: black;white-space: pre-line;">{{ comment.content }}</span>
+                                    <span style="font-size: 5px;" >
                                         - {{ comment.author }}, {{ comment.create_date }}
 
                                         {% if comment.modify_date %}
@@ -188,8 +188,8 @@
                                 <div class="comment py-2 text-muted">
                                     <span style="border: 1px solid; padding :8px; background-color: #f8f9fa"> {{ comment.voter.count }}</span>
                                     <a style="    padding: 5px;"href="#" data-uri="{% url 'pybo:vote_comment' comment.id %}" class="recommend btn btn-secondary my-1">추천</a>
-                                    <span style="white-space: pre-line;">{{ comment.content }}</span>
-                                    <span  style="font-size: 12px;" >
+                                    <span style="font-size:13px; color: black;white-space: pre-line;">{{ comment.content }}</span>
+                                    <span  style="font-size: 5px;" >
                                         - {{ comment.author }}, {{ comment.create_date }}
                                         {% if comment.modify_date %}
                                         ({{ comment.modify_count }}번째 수정:{{ comment.modify_date }})

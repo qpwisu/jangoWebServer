@@ -43,4 +43,4 @@ def vote_comment(request, comment_id):
             comment.voter.remove(request.user)
         else:
             comment.voter.add(request.user)
-    return redirect("pybo:detail",question_id=comment.question.id)
+    return redirect("pybo:detail",question_id= comment.question_id)
