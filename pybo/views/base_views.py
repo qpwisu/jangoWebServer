@@ -45,9 +45,20 @@ def index(request):
 
 
 def detail(request, question_id):
-    """
-    pybo 내용 출력
-    """
     question = get_object_or_404(Question, pk=question_id)
-    context = {'question': question}
+
+    page = request.GET.get('page', '1')  # 페이지
+    so = request.GET.get('so','recent')
+    comment_list = question.comment_set.all()
+    #정렬
+    if so == 'recent':
+        comment_list = comment_list.order_by( '-create_date')
+    else: #recommend
+        comment_list = comment_list.annotate(num_voter=Count('voter')).order_by('-num_voter', '-create_date')
+
+    paginator = Paginator(comment_list, 10)  # 페이지당 10개씩 보여주기
+    page_obj = paginator.get_page(page)
+    question.viewers+=1
+    context = {'question': question,'comment_list': page_obj, 'page': page, 'so': so}
+    question.save()
     return render(request, 'pybo/question_detail.html', context)

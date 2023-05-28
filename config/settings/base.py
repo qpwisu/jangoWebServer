@@ -10,6 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
+# 로컬 환경 실행 python manage.py runserver --settings=config.settings.local
+# 서버 환경 실행 python manage.py runserver --settings=config.settings.prod.py
+# 환경 변수를 설정해 python manage.py reunserver 만으로 로컬 실행 export DJANGO_SETTINGS_MODULE=config.settings.local
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
