@@ -6,8 +6,8 @@
 
 > 브랜치: https://github.com/pahkey/djangobook/branches/all
 
-
-python manage.py runserver --settings=config.settings.local
+- 코드 실행 (로컬에서)
+  - python manage.py runserver --settings=config.settings.local
 
 - python manage.py runserver 로컬로 실행하기
-- export DJANGO_SETTINGS_MODULE=config.settings.local
+  - export DJANGO_SETTINGS_MODULE=config.settings.local
